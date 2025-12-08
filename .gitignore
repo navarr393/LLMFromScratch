@@ -1,0 +1,15 @@
+# Virtual environment
+venv/
+
+# Claude instructions
+CLAUDE.md
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE
+.vscode/
+.idea/
