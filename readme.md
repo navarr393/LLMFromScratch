@@ -1,1 +1,1 @@
-- Code for book "Build a Large Language Model (From Scratch)
+- Code for book "Build a Large Language Model (From Scratch)"
