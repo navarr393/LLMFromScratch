@@ -34,3 +34,18 @@ for i, item in enumerate(vocab.items()):
     print(item)
     if i >= 50:
         break
+
+from simple_tokenizer import SimpleTokenizerV1
+tokenizer = SimpleTokenizerV1(vocab)
+text = """"It's the last he painted, you know," 
+       Mrs. Gisburn said with pardonable pride."""
+
+ids = tokenizer.encode(text) # encode to integer token ids
+print(ids)
+
+# decode the text back to strings
+print(tokenizer.decode(ids))
+
+# example 2 with error
+text = "Hello, do you like tea?"
+print(tokenizer.encode(text))

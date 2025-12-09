@@ -1,7 +1,7 @@
 import re
 
 class SimpleTokenizerV1:
-    def __init__(self, vocab): # pass a dictionary of vocabs for the initialization
+    def __init__(self, vocab): # pass a dictionary of vocabs for the initialization, literally a buch of words the more the better. A big Dataset
         self.str_to_int = vocab # 1, store the word-to-integer mapping
         self.int_to_str = {i:s for s, i in vocab.items()} #2, integer-to-word mapping
 
