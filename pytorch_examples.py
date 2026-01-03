@@ -36,6 +36,9 @@ print(tensor2d.T)  #tensor([[1, 4],
 print(tensor2d.matmul(tensor2d.T))  # tensor([[14, 32],
                                     #        [32, 77]])
 
+# we can achieve the same thing by using the @ operator
+print(tensor2d @ tensor2d.T)
+
 
 """
   z = x1 * w1 + b  # z = 1.1 * 2.2 + 0.0 = 2.42
@@ -64,4 +67,27 @@ b = torch.tensor([0.0])  # bias unit
 z = x1 * w1 + b # net input 
 a = torch.sigmoid(z) # Activation and output
 loss = F.binary_cross_entropy(a, y)
+
+from torch.autograd import grad
+
+y = torch.tensor([1.0]) # target label (class 1) correct answer either 0 or 1
+x1 = torch.tensor([1.1])  # input feature, what the model sees
+w1 = torch.tensor([2.2], requires_grad=True)  # weight we want to learn
+b = torch.tensor([0.0], requires_grad=True) # bias we want to learn
+
+z = x1 * w1 + b # forward pass, the model prediction (logit)
+
+a = torch.sigmoid(z)  # turns the logit into probability a = omega(2.42) = 0.918
+# so the model is saying "prbability of class 1 os around 0.918"
+loss = F.binary_cross_entropy(a, y) # how wrong we are
+
+grad_L_w1 = grad(loss, w1, retain_graph=True) # keep the graph in memory
+grad_L_b = grad(loss, b, retain_graph=True)
+
+print(grad_L_w1)
+print(grad_L_b)
+
+loss.backward()
+print(w1.grad)
+print(b.grad)
                                    
