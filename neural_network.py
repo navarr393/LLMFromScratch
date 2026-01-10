@@ -77,3 +77,9 @@ print(X)
 out = model(X) # train on those 50 
 print(out) # outputs the 3 logits using the forward pass of the model
 
+"""
+The print statement above will output the logits: tensor([[-0.1262,  0.1080, -0.1792]], grad_fn=<AddmmBackward0>)
+where grad_fn is the last used function to compute a variable 
+in the computational graph
+"""
+
